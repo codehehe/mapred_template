@@ -1,5 +1,6 @@
 package com.hadoop.mapred.driver;
 
+import com.hadoop.mapred.jobs.ReduceSideJoin;
 import com.hadoop.mapred.jobs.WordCount;
 import org.apache.hadoop.util.ProgramDriver;
 
@@ -15,8 +16,7 @@ public class MainDriver {
         try {
             pgd.addClass("wordcount", WordCount.class,
                     "A map/reduce program that counts the words in the input files.");
-//            pgd.addClass("pv", Pv.class,
-//                    "pv test");
+            pgd.addClass("reduce_side_join", ReduceSideJoin.class, "reduce_side_join");
             exitCode = pgd.run(argv);
         }
         catch(Throwable e){
